@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const pass = 'mongodb+srv://dev3pgonzalez:6dUwAq3As4st6hge@cluster0.navam8i.mongodb.net/rrss_jeah?retryWrites=true&w=majority';
+const pass = "mongodb+srv://alepazmont:tEBb7TbaDL6nPWSV@cluster0.q1nfn32.mongodb.net/rrss_jeah?retryWrites=true&w=majority&appName=Cluster0"
 
 const connectMongo = async () => {
     try {
