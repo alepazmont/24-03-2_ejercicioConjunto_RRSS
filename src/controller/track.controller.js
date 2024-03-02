@@ -1,4 +1,5 @@
 const Track = require('../model/track.model');
+//const Contributor = require('../model/contributor.model');
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
 // FUNCIONES CRUD
@@ -11,7 +12,7 @@ const getTrack = async (req, res, next) => {
         //1. OBTENGO LA ID QUE HA SOLICITADO EL USUARIO
         const id = req.params.id;
         //2. BUSCO EN LA BBDD POR ID
-        const track = await Track.findById(id);
+        const track = await Track.findById(id).populate('contributors');
         //3. RESPONDO AL USUARIO
         res.status(200).json({
             status: 200,
@@ -27,12 +28,12 @@ const getTrack = async (req, res, next) => {
 const getTracks = async (req, res, next) => {
     try {
         //1. BUSCO TODAS LAS TRACKS
-        const tracks = await Track.find();
+        const tracks = await Track.find().populate('contributors');
         //2. RESPONDO AL USUARIO
         res.status(200).json({
             status: 200,
             message: HTTPSTATUSCODE[200],
-            tracks: tracks
+            data: tracks
         });
     } catch (error) {
         next(error)
@@ -52,7 +53,7 @@ const createTrack = async (req, res, next) => {
         res.status(201).json({
             status: 201,
             message: HTTPSTATUSCODE[201],
-            track: track
+            data: track
         });
     } catch (error) {
         next(error);

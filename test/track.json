@@ -1,8 +1,42 @@
 {
-    "isrc": "ES1234567890",
-    "name": "Como una ola",
-    "contributors": "Rocio Jurado",
-    "genre": "lírico",
-    "lineCYear": 1970,
-    "lineCPublisher": "Sony Music Ltd"
+"Usuarios": {
+    "Nombre": "",
+    "Apellidos": "",
+    "Correo electrónico": "",
+    "Fecha de nacimiento": "",
+    "Género": "",
+    "Ciudad": "",
+    "Amigos": [],
+    "ID única": ""
+},
+"Media": {
+    "Formato": "",
+    "Fecha de publicación": "",
+    "Título": "",
+    "Tamaño": "",
+    "Etiquetados": [],
+    "Ubicación": "",
+    "Privacidad": "",
+    "Licencia de uso": ""
+},
+"Publicaciones": {
+    "Fecha de publicación": "",
+    "Título": "",
+    "Contenido": "",
+    "Adjuntos": [],
+    "Etiquetados": [],
+    "Evento relacionado": "",
+    "Estado de publicación": "",
+    "Privacidad": ""
+},
+"Eventos": {
+    "Fecha del evento": "",
+    "Título": "",
+    "Organizador": "",
+    "Foto portada": "",
+    "Texto": "",
+    "Estado del evento": "",
+    "Invitados": [],
+    "Asistentes": []
+}
 }

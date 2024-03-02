@@ -5,6 +5,7 @@ const cors = require('cors');
 const HTTPSTATUSCODE = require('./utils/httpStatusCode');
 const { connectMongo } = require('./utils/db');
 const trackRouter = require('./src/routes/track.routes');
+const userRouter = require('./src/routes/user.routes');
 
 // AQUI EL ROUTER DE CONTRIBUTOR
 
@@ -34,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 /* ROUTES */
 app.use('/track', trackRouter);
 //app.use('/contributor', contributorRouter);
+app.use('/user', userRouter);
 
 // ruta de bienvenida
 app.get('/', (request, response) => {

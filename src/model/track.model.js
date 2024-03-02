@@ -13,9 +13,8 @@ const trackSchema = new mongoose.Schema({
         trim: true
     },
     contributors: {
-        type: String,
-        required: true,
-        trim: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Contributor'
     },
     genre: {
         type: String,
