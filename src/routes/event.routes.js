@@ -1,8 +1,8 @@
 const express = require('express');
 //EL ROUTER ES EL OBJETO QUE GUARDA TODAS LAS RUTAS.
-const trackRouter = express.Router();
+const eventRouter = express.Router();
 //INSTANCIAMOS AL CONTROLADOR PARA USAR LAS FUNCIONES RELATIVAS A CADA RUTA
-const { getTrack, getTracks, createTrack, updateTrack, deleteTrack } = require('../controller/track.controller');
+const { getEvent, getEvents, createEvent, updateEvent, deleteEvent } = require('../controller/event.controller');
 
 const { isAuth } = require('../middlewares/auth.middleware');
 
@@ -10,19 +10,19 @@ const { isAuth } = require('../middlewares/auth.middleware');
 //nombreDelRouter.get('endpoint', <nombreDeLaFuncion>);
 
 //OBTENER UNA CANCIÓN
-trackRouter.get('/:id', getTrack);
+eventRouter.get('/:id', getEvent);
 
 //OBTENER TODAS LAS CANCIONES
-trackRouter.get('/', getTracks);
+eventRouter.get('/', getEvents);
 
 //CREAR UNA CANCIÓN
-trackRouter.post('/', [isAuth], createTrack);
+eventRouter.post('/', [isAuth], createEvent);
 
 //UPDATE
-trackRouter.patch('/:id', [isAuth], updateTrack);
+eventRouter.patch('/:id', [isAuth], updateEvent);
 
 //DELETE
-trackRouter.delete('/:id', [isAuth], deleteTrack);
+eventRouter.delete('/:id', [isAuth], deleteEvent);
 
 
-module.exports = trackRouter;
+module.exports = eventRouter;

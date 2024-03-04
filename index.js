@@ -4,8 +4,9 @@ const cors = require('cors');
 // componentes "míos" que voy a utilizar
 const HTTPSTATUSCODE = require('./utils/httpStatusCode');
 const { connectMongo } = require('./utils/db');
-const trackRouter = require('./src/routes/track.routes');
+const eventRouter = require('./src/routes/event.routes');
 const userRouter = require('./src/routes/user.routes');
+const mediaRouter = require('./src/routes/media.routes');
 
 // AQUI EL ROUTER DE CONTRIBUTOR
 
@@ -33,7 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 /* ROUTES */
-app.use('/track', trackRouter);
+app.use('/event', eventRouter);
+app.use('/media', mediaRouter);
 //app.use('/contributor', contributorRouter);
 app.use('/user', userRouter);
 
