@@ -10,24 +10,24 @@ const {
   deleteMedia,
 } = require("../controller/media.controller");
 
-/* const { isAuth } = require("../middlewares/auth.middleware"); */
+const { isAuth } = require("../middlewares/auth.middleware");
 
 // LAS RUTAS
 //nombreDelRouter.get('endpoint', <nombreDeLaFuncion>);
 
 //OBTENER UNA CANCIÓN
-mediaRouter.get("/:id", getMedia);
+mediaRouter.get("/get", getMedia);
 
 //OBTENER TODAS LAS CANCIONES
-mediaRouter.get("/", getMedias);
+mediaRouter.get("/getAll", getMedias);
 
 //CREAR UNA CANCIÓN
-mediaRouter.post("/create", /* [isAuth], */ createMedia);
+mediaRouter.post("/create", [isAuth], createMedia);
 
 //UPDATE
-mediaRouter.patch("/:id", /* [isAuth], */ updateMedia);
+mediaRouter.patch("/update", [isAuth], updateMedia);
 
 //DELETE
-mediaRouter.delete("/:id", /* [isAuth], */ deleteMedia);
+mediaRouter.delete("/delete", [isAuth], deleteMedia);
 
 module.exports = mediaRouter;

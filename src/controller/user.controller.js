@@ -52,14 +52,14 @@ const createUser = async (request, response, next) => {
 
 const authenticate = async (request, response, next) => {
   try {
-    const userInfo = await User.findOne({ name: request.body.name });
+    const userInfo = await User.findOne({ username: request.body.username });
     console.log(bcrypt.compareSync(request.body.password, userInfo.password));
     if (bcrypt.compareSync(request.body.password, userInfo.password)) {
       userInfo.password = "not provided";
       const token = jwt.sign(
         {
           id: userInfo._id,
-          name: userInfo.name,
+          username: userInfo.username,
         },
         request.app.get("secretKey"),
         { expiresIn: "1d" }

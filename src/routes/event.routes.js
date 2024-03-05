@@ -16,18 +16,18 @@ const { isAuth } = require("../middlewares/auth.middleware");
 //nombreDelRouter.get('endpoint', <nombreDeLaFuncion>);
 
 //OBTENER UNA CANCIÓN
-eventRouter.get("/:id", getEvent);
+eventRouter.get("/get", getEvent);
 
 //OBTENER TODAS LAS CANCIONES
-eventRouter.get("/", getEvents);
+eventRouter.get("/getAll", getEvents);
 
 //CREAR UNA CANCIÓN
-eventRouter.post("/", [isAuth], createEvent);
+eventRouter.post("/create", [isAuth], createEvent);
 
 //UPDATE
-eventRouter.patch("/:id", [isAuth], updateEvent);
+eventRouter.patch("/update", [isAuth], updateEvent);
 
 //DELETE
-eventRouter.delete("/:id", [isAuth], deleteEvent);
+eventRouter.delete("/delete", [isAuth], deleteEvent);
 
 module.exports = eventRouter;
