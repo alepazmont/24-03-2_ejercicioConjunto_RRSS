@@ -6,34 +6,32 @@ const getEvent = async (req, res, next) => {
     //1. OBTENGO LA ID QUE HA SOLICITADO EL USUARIO
     const id = req.params.id;
     //2. BUSCO EN LA BBDD POR ID
-    const event = await Event.findById(id).populate('event');
+    const event = await Event.findById(id).populate("event");
     //3. RESPONDO AL USUARIO
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: event
+      data: event,
     });
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
-
+};
 
 const getEvents = async (req, res, next) => {
   try {
     //1. BUSCO TODAS LAS TRACKS
-    const events = await Event.find().populate('media');
+    const events = await Event.find().populate("media");
     //2. RESPONDO AL USUARIO
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: events
+      data: events,
     });
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
-
+};
 
 // - CREAR
 
@@ -47,13 +45,12 @@ const createEvent = async (req, res, next) => {
     res.status(201).json({
       status: 201,
       message: HTTPSTATUSCODE[201],
-      data: event
+      data: event,
     });
   } catch (error) {
     next(error);
   }
-}
-
+};
 
 // - MODIFICAR
 
@@ -75,12 +72,12 @@ const updateEvent = async (req, res, next) => {
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: event
+      data: event,
     });
   } catch (error) {
     next(error);
   }
-}
+};
 
 // - DELETE
 
@@ -90,20 +87,17 @@ const deleteEvent = async (req, res, next) => {
     const event = await Event.findByIdAndDelete(id);
 
     if (!event) {
-      return res.status(404).json({ message: 'Event no encontrada' }); // esto sería un mensaje de error personalizado.
+      return res.status(404).json({ message: "Event no encontrada" }); // esto sería un mensaje de error personalizado.
     }
 
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: event
+      data: event,
     });
-
   } catch (error) {
     next(error);
   }
 };
 
-
-
-module.exports = { getEvent, getEvents, createEvent, updateEvent, deleteEvent }
+module.exports = { getEvent, getEvents, createEvent, updateEvent, deleteEvent };

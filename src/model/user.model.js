@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const salt = 10;
+const salt = 10; // nivel de complejidad de encriptación, cantidad de operaciones que hace para encriptar algo
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-  },  
+  },
   password: {
     type: String,
     trim: true,
@@ -34,18 +34,20 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  gender: {
+  /*   gender: {
     type: String,
     trim: true,
-  },
+  }, */
   city: {
     type: String,
     trim: true,
   },
-  users: {
-    type: Number,
-    trim: true,
-  },
+  /*   users: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ], */
 });
 
 userSchema.pre("save", (next) => {
@@ -55,5 +57,5 @@ userSchema.pre("save", (next) => {
   next();
 });
 
-const User = mongoose.model("users", userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;

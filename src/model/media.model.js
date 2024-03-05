@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+/* const bcrypt = require("bcrypt"); */
 
 const mediaSchema = new mongoose.Schema({
   format: {
     type: String,
-    unique: false,
+    /* unique: false, */
     trim: true,
     required: true,
   },
@@ -18,24 +18,23 @@ const mediaSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  userName: {
+  /*   userName: {
     type: String,
     trim: true,
     required: true,
-  },
+  }, */
   location: {
     type: String,
-    unique: true,
+    /* unique: true, */
     trim: true,
   },
-  privacity: {
+  /*   privacity: {
     type: String,
     unique: true,
     trim: true,
-  },
+  }, */
 });
 
-
-const Media = mongoose.model("media", mediaSchema);
+const Media = mongoose.model("Media", mediaSchema);
 
 module.exports = Media;
