@@ -5,18 +5,6 @@ const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
 const createUser = async (request, response, next) => {
   try {
-    /* const { username, name, lastname, email, birthday, gender, city, users } =
-      request.body;
-    const user = new User(
-      username,
-      name,
-      lastname,
-      email,
-      birthday,
-      gender,
-      city,
-      users
-    ); */
     const user = new User();
     user.username = request.body.username;
     user.name = request.body.name;

@@ -12,7 +12,7 @@ const getMedia = async (req, res, next) => {
     //1. OBTENGO LA ID QUE HA SOLICITADO EL USUARIO
     const id = req.params.id;
     //2. BUSCO EN LA BBDD POR ID
-    const media = await Media.findById(id); /* .populate('media'); */
+    const media = await Media.findById(id);
     //3. RESPONDO AL USUARIO
     res.status(200).json({
       status: 200,
@@ -27,7 +27,7 @@ const getMedia = async (req, res, next) => {
 const getMedias = async (req, res, next) => {
   try {
     //1. BUSCO TODAS LAS TRACKS
-    const medias = await Media.find(); /* .populate('media'); */
+    const medias = await Media.find();
     //2. RESPONDO AL USUARIO
     res.status(200).json({
       status: 200,
