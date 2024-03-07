@@ -34,20 +34,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  /*   gender: {
-    type: String,
-    trim: true,
-  }, */
   city: {
     type: String,
     trim: true,
   },
-  /*   users: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ], */
 });
 
 userSchema.pre("save", (next) => {

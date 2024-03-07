@@ -10,6 +10,7 @@ const {
   deleteMedia,
 } = require("../controller/media.controller");
 
+const { upload } = require("../middlewares/file.middleware");
 const { isAuth } = require("../middlewares/auth.middleware");
 
 // LAS RUTAS
@@ -22,7 +23,10 @@ mediaRouter.get("/get", getMedia);
 mediaRouter.get("/getAll", getMedias);
 
 //CREAR UNA CANCIÓN
-mediaRouter.post("/create", [isAuth], createMedia);
+// .single es una función de subida de UN ARCHIVO, el campo en los parámetros es donde se espera la recepción de dicho archivo
+// en caso de que queramos subir mas de un archivo tendríamos que crear un array [upload.array('cover')]
+mediaRouter.post("/create", [upload.single("format")], createMedia);
+/* mediaRouter.post("/create", [isAuth], createMedia); */
 
 //UPDATE
 mediaRouter.patch("/update", [isAuth], updateMedia);

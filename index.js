@@ -8,7 +8,8 @@ const { connectMongo } = require("./utils/db");
 const eventRouter = require("./src/routes/event.routes");
 const userRouter = require("./src/routes/user.routes");
 const mediaRouter = require("./src/routes/media.routes");
-
+/* const releaseRouter = require("./src/routes/release.router");
+ */
 // AQUI EL ROUTER DE CONTRIBUTOR
 
 const PORT = 3000;
@@ -23,10 +24,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
-/* app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:4200'],
-    credentials: true,
-})); */
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
